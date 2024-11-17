@@ -58,30 +58,21 @@
 
     <!-- Shopping Cart start -->
     <div class="shopping-cart">
-      <div class="cart-item">
-        <img src="img/products/1.jpg" alt="Product 1">
-        <div class="item-detail">
-          <h3>Product 1</h3>
-          <div class="item-price">IDR 30K</div>
+      <template x-for="(item, index) in $store.cart.items" x-key="index">
+        <div class="cart-item">
+          <img :src="`img/products/${item.img}`" :alt="item.name">
+          <div class="item-detail">
+            <h3 x-text="item.name"></h3>
+            <div class="item-price">
+              <span x-text="rupiah(item.price)"></span> &times;
+              <button id="remove">&minus;</button>
+              <span x-text="item.quantity"></spanx>
+              <button id="add">+</button> &equals;
+              <span x-text="item.total"></span>
+            </div>
+          </div>
         </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-      <div class="cart-item">
-        <img src="img/products/1.jpg" alt="Product 1">
-        <div class="item-detail">
-          <h3>Product 1</h3>
-          <div class="item-price">IDR 30K</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
-      <div class="cart-item">
-        <img src="img/products/1.jpg" alt="Product 1">
-        <div class="item-detail">
-          <h3>Product 1</h3>
-          <div class="item-price">IDR 30K</div>
-        </div>
-        <i data-feather="trash-2" class="remove-item"></i>
-      </div>
+      </template>
     </div>
     <!-- Shopping Cart end -->
 
@@ -139,7 +130,6 @@
     <p>Produk-produk kopi spesial yang bisa Anda bawa pulang dan nikmati kapan saja.</p>
 
     <div class="row">
-      <!-- <template x-for="(item, index) in items" x-key="index"> -->
       <div class="product-card">
         <div class="product-icons">
           <a href="#"><i data-feather="shopping-cart"></i></a>
@@ -158,7 +148,6 @@
           </div>
           <div class="product-price">Rp.16.000 <span>Rp.20.000</span></div>
         </div>
-      <!-- </template> -->
       </div>  
 
       <div class="product-card">
@@ -249,7 +238,10 @@
     </p>
 
     <div class="row">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.8812874602595!2d106.5348447!3d-6.279334199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fd748a706eb1%3A0x6373f3ed440a0924!2sKopi%20N!5e0!3m2!1sid!2sid!4v1731242218971!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.8812874602595!2d106.5348447!3d-6.279334199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fd748a706eb1%3A0x6373f3ed440a0924!2sKopi%20N!5e0!3m2!1sid!2sid!4v1731242218971!5m2!1sid!2sid"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map">
+    </iframe>
 
       <form action="">
         <div class="input-group">
