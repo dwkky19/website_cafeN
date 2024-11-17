@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kopi N</title>
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  
 
 
   <!-- Fonts -->
@@ -20,6 +21,12 @@
 
   <!-- My Style -->
   <link rel="stylesheet" href="css/style.css">
+ 
+  <!-- Alpain JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- App -->
+   <script src="src/app.js"></script>
 </head>
 
 <body>
@@ -117,30 +124,28 @@
 
     <div class="row">
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- MENU 1 -</h3>
+        <img src="img/menu/menu1.png" alt="Espresso" class="menu-card-img">
       </div>
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- MENU 2 -</h3>
+        <img src="img/menu/menu2.png" alt="Espresso" class="menu-card-img">
       </div>
     </div>
   </section>
   <!-- Menu Section end -->
 
   <!-- Products Section start -->
-  <section class="products" id="products">
+  <section class="products" id="products" x-data="products">
     <h2><span>Produk </span> Kami</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum, ab fuga possimus iste.</p>
+    <p>Produk-produk kopi spesial yang bisa Anda bawa pulang dan nikmati kapan saja.</p>
 
     <div class="row">
+      <!-- <template x-for="(item, index) in items" x-key="index"> -->
       <div class="product-card">
         <div class="product-icons">
           <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
         </div>
         <div class="product-image">
-          <img src="img/caramel latte (2).jpeg" alt="Product 1">
+          <img src="img/caramel latte (2).jpeg" alt="caramel latte">
         </div>
         <div class="product-content">
           <h3>Coffee Latte</h3>
@@ -153,14 +158,15 @@
           </div>
           <div class="product-price">Rp.16.000 <span>Rp.20.000</span></div>
         </div>
-      </div>
+      <!-- </template> -->
+      </div>  
+
       <div class="product-card">
         <div class="product-icons">
           <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
         </div>
         <div class="product-image">
-          <img src="img/kopi susu aren.jpeg" alt="Product 1">
+          <img src="img/kopi susu aren.jpeg" alt="kopi susu aren">
         </div>
         <div class="product-content"> 
           <h3>Kopi Susu Aren</h3>
@@ -174,13 +180,13 @@
           <div class="product-price">Rp.15.000 <span>Rp.18.000</span></div>
         </div>
       </div>
+
       <div class="product-card">
         <div class="product-icons">
           <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
         </div>
         <div class="product-image">
-          <img src="img/teh lemon.jpeg" alt="Product 1">
+          <img src="img/teh lemon.jpeg" alt="lemon tea">
         </div>
         <div class="product-content">
           <h3>Lemon Tea</h3>
@@ -194,16 +200,16 @@
           <div class="product-price">Rp.12.000 <span>Rp.15.000</span></div>
         </div>
       </div>
+    
       <div class="product-card">
         <div class="product-icons">
           <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
         </div>
         <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
+          <img src="img/spaghetti.jpeg" alt="spaghetti">
         </div>
         <div class="product-content">
-          <h3>Coffee Beans 1</h3>
+          <h3>Spaghetti Bolognese</h3>
           <div class="product-stars">
             <i data-feather="star"></i>
             <i data-feather="star"></i>
@@ -211,19 +217,18 @@
             <i data-feather="star"></i>
             <i data-feather="star"></i>
           </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
+          <div class="product-price">Rp.15.000 <span>Rp.18.000</span></div>
         </div>
       </div>
       <div class="product-card">
         <div class="product-icons">
           <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
         </div>
         <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
+          <img src="img/chiken katsu nasi.jpeg" alt="chiken katsu with rice">
         </div>
         <div class="product-content">
-          <h3>Coffee Beans 1</h3>
+          <h3>Chiken Katsu With Rice</h3>
           <div class="product-stars">
             <i data-feather="star"></i>
             <i data-feather="star"></i>
@@ -231,177 +236,16 @@
             <i data-feather="star"></i>
             <i data-feather="star"></i>
           </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
+          <div class="product-price">Rp.17.000 <span>Rp.20.000</span></div>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-        </div>
-        <div class="product-image">
-          <img src="img/products/1.jpg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Coffee Beans 1</h3>
-          <div class="product-stars">
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-            <i data-feather="star"></i>
-          </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+       </section>
   <!-- Products Section end -->
 
   <!-- Contact Section start -->
   <section id="contact" class="contact">
     <h2><span>Kontak</span> Kami</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, provident.
+    <p>Hubungi kami untuk informasi lebih lanjut atau kunjungi kami langsung di kafe.
     </p>
 
     <div class="row">
@@ -442,7 +286,7 @@
     </div>
 
     <div class="credit">
-      <p>Created by <a href="">Dwiky Darmawan</a>. | &copy; 2024.</p>
+      <p>Created by<a href="">Dwiky Darmawan</a>| &copy; 2024.</p>
     </div>
   </footer>
   <!-- Footer end -->
