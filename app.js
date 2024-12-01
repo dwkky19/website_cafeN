@@ -91,10 +91,22 @@ document.addEventListener("alpine:init", () => {
     e.preventDefault();
     const formData = new FormData(form);
     const data = new URLSearchParams(formData);
-    const objData = Object.fromEntries(data).items;
-    console.log(objData);
+    const objData = Object.fromEntries(data);
+    const message = formatMessage(objData);
+    window.open('https://wa.me/6281574794973?text=' + encodeURIComponent(message));
   });
   
+  // format pesan whatsapp
+  const formatMessage = (obj) => {
+    return `Data Customer
+    Nama: ${obj.name}
+    Email: ${obj.email}
+    No HP: ${obj.phone}
+    Data Pesanan
+    ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
+    TOTAL: ${rupiah(obj.total)}
+    Terima Kasih.`;
+  };
 
   // konversi ke rupiah
   const rupiah = (number) => {
