@@ -2,7 +2,7 @@ document.addEventListener("alpine:init", () => {
     Alpine.data("products", () => ({
       items: [
         { id: 1, name: "Caramel Latte", img: "1.jpg", price: 16000 },
-        { id: 2, name: "Kopi Susu Aren", img: "2.jpg", price: 55000},
+        { id: 2, name: "Kopi Susu Aren", img: "2.jpg", price: 17000},
       ],
     }));
   
@@ -64,7 +64,39 @@ document.addEventListener("alpine:init", () => {
       }
     });
   });
+
+
+  // form validasi
+  const checkoutButton = document.querySelector('.checkout-button');
+  checkoutButton.disabled = true;
+
+  const form = document.querySelector('#checkoutForm');
+
+  form.addEventListener('keyup' , function(){
+    for(let i = 0; i < form.elements.length; i++) {
+      if(form.elements[i].value.length !== 0) {
+        checkoutButton.classList.remove('disabled');
+        checkoutButton.classList.add('disabled');
+      } else {
+        return false;
+      }
+    }
+    checkoutButton.disabled = false;
+    checkoutButton.classList.remove('disabled');
+  });
+
+  // kirim data ketika tombol checkout di klik
+  checkoutButton.addEventListener('click', 
+    function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData);
+    const objData = Object.fromEntries(data).items;
+    console.log(objData);
+  });
   
+
+  // konversi ke rupiah
   const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",

@@ -79,24 +79,26 @@
 
       <div class="form-container" x-show="$store.cart.items.length">
         <form action="" id="checkoutForm">
+          <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
+          <input type="hidden" name="items" x-model="$store.cart.total">
           <h5>Customer Detail</h5>
 
           <label for="name">
-            <span>Name</span>
+            <span>Nama</span>
             <input type="text" name="name" id="name">
           </label>
 
           <label for="email">
-            <span>Name</span>
+            <span>Email</span>
             <input type="email" name="email" id="email">
           </label>
 
           <label for="phone">
-            <span>Phone</span>
-            <input type="number" name="phine" id="phone" autocomplete="off">
+            <span>No HP</span>
+            <input type="number" name="phone" id="phone" autocomplete="off">
           </label>
 
-          <button class="checkout-button" type="submit" id="checkout-button" value="checkout">Checkout</button>
+          <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
         </form>
       </div>
     </div>
@@ -440,7 +442,7 @@
 
   <!-- My Javascript -->
   <script src="js/script.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js" async></script>
 </body>
 
 </html>
