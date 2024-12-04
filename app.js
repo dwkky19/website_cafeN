@@ -2,8 +2,14 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     // Tambahkan menu di bawah
     items: [
-      { id: 1, name: "Caramel Latte", img: "1.jpg", price: 16000 },
-      { id: 2, name: "Kopi Susu Aren", img: "2.jpg", price: 17000},
+      { id: 1, name: "Caramel Latte", img: "1.png", price: 16000 },
+      { id: 2, name: "Kopi Susu Aren", img: "2.png", price: 15000},
+      { id: 3, name: "Espreso", img: "3.png", price: 10000},
+      { id: 4, name: "Es Teh Lemon", img: "4.png", price: 12000},
+      { id: 5, name: "Mie Jebew", img: "5.png", price: 12000},
+      { id: 6, name: "Chiken Katsu + Nasi", img: "6.png", price: 17000},
+      { id: 7, name: "Dimsum", img: "7.png", price: 15000},
+      { id: 8, name: "Spaghetti Bolonese", img: "8.png", price: 15000},
     ],
   }));
 
@@ -92,7 +98,6 @@ checkoutButton.addEventListener("click", async function (e) {
   const formData = new FormData(form);
   const data = new URLSearchParams(formData);
   const objData = Object.fromEntries(data);
-  const message = formatMessage(objData);
 
   try {
     const response = await fetch("php/placeOrder.php", {
@@ -101,26 +106,46 @@ checkoutButton.addEventListener("click", async function (e) {
     });
 
     const token = await response.text();
-    // console.log(token);
-    window.snap.pay(token);
+    window.snap.pay(token, {
+      onSuccess: function (result) {
+        // Jika pembayaran sukses, arahkan ke WhatsApp
+        const message = formatMessage(objData);
+        const whatsappNumber = "081574794973";
+        const encodedMessage = encodeURIComponent(message);
+        const waLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        window.location.href = waLink;
+      },
+      onPending: function (result) {
+        alert("Pembayaran belum selesai. Silakan selesaikan pembayaran.");
+      },
+      onError: function (result) {
+        alert("Pembayaran gagal. Silakan coba lagi.");
+      },
+      onClose: function () {
+        alert("Anda menutup halaman pembayaran sebelum selesai.");
+      },
+    });
   } catch (err) {
     console.error(err.message);
   }
 });
 
-// format pesan whatsapp
+// Format pesan WhatsApp
 const formatMessage = (obj) => {
-  return `Data Customer
-  Nama: ${obj.name}
-  Email: ${obj.email}
-  No HP: ${obj.phone}
-  Data Pesanan
-  ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
-  TOTAL: ${rupiah(obj.total)}
-  Terima Kasih.`;
+  return `*Data Customer*\n
+Nama: ${obj.name}
+Email: ${obj.email}
+No HP: ${obj.phone}
+
+*Data Pesanan*\n
+${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)})`).join("\n")}
+\n*TOTAL*: ${rupiah(obj.total)}
+
+*Bukti Pembayaran:* [Upload bukti di sini atau tambahkan tautan] 
+Terima Kasih.`;
 };
 
-// konversi ke rupiah
+// Konversi ke Rupiah
 const rupiah = (number) => {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
