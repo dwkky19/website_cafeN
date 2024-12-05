@@ -112,7 +112,7 @@ checkoutButton.addEventListener("click", async function (e) {
         const message = formatMessage(objData);
         const whatsappNumber = "081574794973";
         const encodedMessage = encodeURIComponent(message);
-        const waLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        const waLink = `https://wa.me/${+6281574794973}?text=${encodedMessage}`;
         window.location.href = waLink;
       },
       onPending: function (result) {
@@ -140,9 +140,7 @@ No HP: ${obj.phone}
 *Data Pesanan*\n
 ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)})`).join("\n")}
 \n*TOTAL*: ${rupiah(obj.total)}
-
-*Bukti Pembayaran:* [Upload bukti di sini atau tambahkan tautan] 
-Terima Kasih.`;
+`;
 };
 
 // Konversi ke Rupiah
