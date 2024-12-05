@@ -110,7 +110,7 @@ checkoutButton.addEventListener("click", async function (e) {
       onSuccess: function (result) {
         // Jika pembayaran sukses, arahkan ke WhatsApp
         const message = formatMessage(objData);
-        const whatsappNumber = "081574794973";
+        // const whatsappNumber = "081574794973";
         const encodedMessage = encodeURIComponent(message);
         const waLink = `https://wa.me/${+6281574794973}?text=${encodedMessage}`;
         window.location.href = waLink;
