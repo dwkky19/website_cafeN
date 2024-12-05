@@ -2,14 +2,14 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     // Tambahkan menu di bawah
     items: [
-      { id: 1, name: "Caramel Latte", img: "1.png", price: 16000 },
-      { id: 2, name: "Kopi Susu Aren", img: "2.png", price: 15000},
-      { id: 3, name: "Espreso", img: "3.png", price: 10000},
-      { id: 4, name: "Es Teh Lemon", img: "4.png", price: 12000},
-      { id: 5, name: "Mie Jebew", img: "5.png", price: 12000},
-      { id: 6, name: "Chiken Katsu + Nasi", img: "6.png", price: 17000},
-      { id: 7, name: "Dimsum", img: "7.png", price: 15000},
-      { id: 8, name: "Spaghetti Bolonese", img: "8.png", price: 15000},
+      { id: 1, name: "Caramel Latte", img: "1.jpeg", price: 16000 },
+      { id: 2, name: "Kopi Susu Aren", img: "2.jpeg", price: 15000},
+      { id: 3, name: "Espreso", img: "3.jpeg", price: 10000},
+      { id: 4, name: "Es Teh Lemon", img: "4.jpeg", price: 12000},
+      { id: 5, name: "Mie Jebew", img: "5.jpeg", price: 12000},
+      { id: 6, name: "Chiken Katsu + Nasi", img: "6.jpeg", price: 17000},
+      { id: 7, name: "Dimsum", img: "7.jpeg", price: 15000},
+      { id: 8, name: "Spaghetti Bolonese", img: "8.jpeg", price: 15000},
     ],
   }));
 
